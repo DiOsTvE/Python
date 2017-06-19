@@ -29,4 +29,19 @@ if mes in diccionario:
 else:
     print("No esta en el diccionario")
 
+#lista los elementos del diccionario
 print(diccionario.items())
+
+#elimina una posicion concreta
+del diccionario['Octubre']
+print (diccionario)
+#vacia el diccionario
+diccionario.clear()
+print(diccionario)
+#rellenar diccionario en tiempo de ejecucion
+dato = input("Ingrese dato: ")
+valor = float(input("Ingrese el valor del dato: "))
+diccionario[dato] = valor
+print(diccionario)
+#eliminar el diccionario
+del diccionario
