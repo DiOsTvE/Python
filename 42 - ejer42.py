@@ -22,3 +22,11 @@ for i in diccionario:
     diccionario[i] = ventas
 
 print(diccionario)
+
+mes = input("Qué mes quieres ver?: ")
+if mes in diccionario:
+    print(diccionario[mes])
+else:
+    print("No esta en el diccionario")
+
+print(diccionario.items())
