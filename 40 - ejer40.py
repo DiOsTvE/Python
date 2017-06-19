@@ -21,3 +21,4 @@ for j in diccionario:
     diccionario[j] = contador
 
 print(diccionario)
+print(cadena.title)
