@@ -265,6 +265,9 @@ while mimenu.opcion != 0:
             mimenu.retrocedes()
             mimenu.elegir()
             if mimenu.opcion == 1:
+                for muestropersonas in personajes:
+                    muestropersonas.mostrarPersonaje()
+                    print("-----------------------------------")
                 nombreperso = input("Elige el personaje por el nombre: ").lower()
                 for elegir in range(len(personajes)):
                     if personajes[elegir].nombre == nombreperso:
@@ -272,6 +275,9 @@ while mimenu.opcion != 0:
                         print("El Personaje ha retrocedido ",movimiento," pasos")
                         print("------------------------------------------------")
             elif mimenu.opcion == 2:
+                for muestroheroes in heroes:
+                    muestroheroes.mostrarPersonaje()
+                    print("-----------------------------------")
                 nombreperso = input("Elige el heroe por el nombre: ").lower()
                 for elegir in range(len(heroes)):
                     if heroes[elegir].nombre == nombreperso:
@@ -279,6 +285,9 @@ while mimenu.opcion != 0:
                         print("El Heroe ha retrocedido ",movimiento," pasos")
                         print("------------------------------------------------")
             elif mimenu.opcion == 3:
+                for muestrovillanos in villanos:
+                    muestrovillanos.mostrarPersonaje()
+                    print("-----------------------------------")
                 nombreperso = input("Elige el villano por el nombre: ").lower()
                 for elegir in range(len(villanos)):
                     if villanos[elegir].nombre == nombreperso:
@@ -294,16 +303,19 @@ while mimenu.opcion != 0:
             mimenu.atacas()
             mimenu.elegir()
             if mimenu.opcion == 1:
+                for muestroheroes in heroes:
+                    muestroheroes.mostrarPersonaje()
+                    print("-----------------------------------")
                 nombreperso = input("Elige el heroe por el nombre: ").lower()
-                for elegir in range(len(personajes)):
+                for elegir in range(len(heroes)):
                     if heroes[elegir].nombre == nombreperso:
                         villano_azar = random.randint(0,(len(villanos)-1))
                         print("El villano seleccionado es: ")
                         villanos[villano_azar].mostrarPersonaje()
                         if heroes[elegir].posicion == villanos[villano_azar].posicion:
+                            print("El heroe puede atacar al villano, estan en la misma posicion.")
+                            ostia = heroes[elegir].atacar()
                             if villanos[villano_azar].salud > 0:
-                                print("El heroe puede atacar al villano, estan en la misma posicion.")
-                                ostia = heroes[elegir].atacar()
                                 print("La ostia del heroe ha sido de: ",ostia)
                                 villanos[villano_azar].salud = villanos[villano_azar].salud - ostia
                                 print("La salud del villano se queda en: ",villanos[villano_azar].salud)
@@ -313,6 +325,9 @@ while mimenu.opcion != 0:
                             print("No puede atacar, no esta en la misma posicion.")
                         print("-------------------------------------------------------------")
             elif mimenu.opcion == 2:
+                for muestrovillanos in villanos:
+                    muestrovillanos.mostrarPersonaje()
+                    print("-----------------------------------")
                 nombreperso = input("Elige el villano por el nombre: ").lower()
                 for elegir in range(len(villanos)):
                     if villanos[elegir].nombre == nombreperso:
@@ -320,9 +335,9 @@ while mimenu.opcion != 0:
                         print("El heroe seleccionado es: ")
                         heroes[heroe_azar].mostrarPersonaje()
                         if villanos[elegir].posicion == heroes[heroe_azar].posicion:
+                            print("El villano puede atacar al heroe, estan en la misma posicion.")
+                            ostia = villanos[elegir].atacar()
                             if heroes[heroe_azar].salud > 0:
-                                print("El villano puede atacar al heroe, estan en la misma posicion.")
-                                ostia = villanos[elegir].atacar()
                                 print("La ostia del villano ha sido de: ",ostia)
                                 heroes[heroe_azar].salud = heroes[heroe_azar].salud - ostia
                                 print("La salud del heroe se queda en: ",heroes[heroe_azar].salud)
@@ -338,4 +353,3 @@ while mimenu.opcion != 0:
     else:
         print("Opcion incorrecta. Elige otra opción.")
         print("-------------------------------------")
-
