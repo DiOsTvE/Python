@@ -1,0 +1,6 @@
+archivo = open("archivos/bd.txt","r")
+archivo.seek(41)
+texto  = archivo.readline()
+print(texto)
+pos = archivo.tell()
+print(pos)
