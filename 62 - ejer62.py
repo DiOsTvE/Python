@@ -8,4 +8,5 @@ webbrowser.open_new_tab("http://www.noticias3d.com")
 import urllib.request
 
 x = urllib.request.urlopen('https://www.google.com/')
-print(x.read())
+contenido = x.read()
+print(contenido)
